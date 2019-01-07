@@ -14,38 +14,39 @@
 
 
 <ion-content padding>
-  <ion-card>
+  <!-- *ngFor é uma diretiva estrutural-->
+  <ion-card *ngFor="let filme of lista_filmes">
 
     <ion-item>
       <ion-avatar item-start>
         <img src="assets/imgs/marty-avatar.png">
       </ion-avatar>
-      <h2 class="feed_title">{{ nomeUsu }}</h2>
-      <p>05 de janeiro de 1964</p>
+      <h2 class="feed_title">{{ filme.original_title }}</h2>
+      <p>{{ filme.release_date }}</p>
     </ion-item>
 
-    <img src="assets/imgs/advance-card-bttf.png">
+    <img [src]="'https://image.tmdb.org/t/p/w300/'+filme.backdrop_path">
 
     <ion-card-content>
-      <p>Aplicativo para compras compartilhadas em que você usuário pode achar alguém para dividir a conta</p>
+      <p>{{ filme.overview }}</p>
     </ion-card-content>
 
     <ion-row>
       <ion-col>
         <button ion-button icon-start clear small>
           <ion-icon name="thumbs-up"></ion-icon>
-          <div>1000000 Likes</div>
+          <div>{{ objetoFeed.qtdeLike }} curtidas</div>
         </button>
       </ion-col>
       <ion-col>
         <button ion-button icon-start clear small>
           <ion-icon name="text"></ion-icon>
-          <div>2000 Comments</div>
+          <div>{{ objetoFeed.qtdeComents }} comentários</div>
         </button>
       </ion-col>
       <ion-col center text-center>
         <ion-note>
-          1h atrás
+            {{ objetoFeed.timeComents }}
         </ion-note>
       </ion-col>
     </ion-row>
