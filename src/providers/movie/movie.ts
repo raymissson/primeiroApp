@@ -15,8 +15,8 @@ export class MovieProvider{
     console.log('Hello MovieProvider Provider');
   }
 
-  getLetesMovies(){
-    return this.http.get(this.baseApiPath+"/movie/popular?api_key=969c2642ad3077b3e37d461bf69abca8");
+  getLetesMovies(page=1){
+    return this.http.get(this.baseApiPath+`/movie/popular?page=${page}&api_key=969c2642ad3077b3e37d461bf69abca8`);
   }
 
 }
